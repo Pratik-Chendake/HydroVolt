@@ -1,0 +1,330 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-black text-slate-100 antialiased min-h-screen selection:bg-neon-rose selection:text-white;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Cyber & Neon Rose Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0070F3 0%, #FF007F 100%);
+  border-radius: 9999px;
+  border: 2px solid rgba(0, 0, 0, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00D2FF 0%, #FF2A85 100%);
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.8);
+}
+
+/* =========================================================================
+   1. LIQUID GLASS EFFECT (Fluid specular highlights & ultra-deep refraction)
+   ========================================================================= */
+.liquid-glass {
+  background: linear-gradient(135deg, rgba(10, 16, 32, 0.62) 0%, rgba(4, 7, 16, 0.78) 100%);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.85),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.6);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass:hover {
+  border-color: rgba(0, 210, 255, 0.35);
+  box-shadow: 
+    0 20px 48px -6px rgba(0, 0, 0, 0.9),
+    0 0 25px -4px rgba(0, 210, 255, 0.25),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.liquid-glass-rose {
+  background: linear-gradient(135deg, rgba(20, 5, 18, 0.65) 0%, rgba(6, 2, 8, 0.82) 100%);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 0, 127, 0.32);
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.85),
+    0 0 30px -6px rgba(255, 0, 127, 0.25),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-rose:hover {
+  border-color: rgba(255, 0, 127, 0.6);
+  box-shadow: 
+    0 20px 48px -6px rgba(0, 0, 0, 0.9),
+    0 0 35px -2px rgba(255, 0, 127, 0.45),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.35);
+}
+
+.liquid-glass-blue {
+  background: linear-gradient(135deg, rgba(5, 15, 35, 0.65) 0%, rgba(2, 6, 18, 0.82) 100%);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(0, 210, 255, 0.32);
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.85),
+    0 0 30px -6px rgba(0, 210, 255, 0.25),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-blue:hover {
+  border-color: rgba(0, 210, 255, 0.65);
+  box-shadow: 
+    0 20px 48px -6px rgba(0, 0, 0, 0.9),
+    0 0 35px -2px rgba(0, 210, 255, 0.45),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Top specular fluid reflection line */
+.liquid-sheen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* =========================================================================
+   2. GLASSMORPHISM & FROSTED PANELS
+   ========================================================================= */
+.glass-panel {
+  background: rgba(6, 11, 24, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 112, 243, 0.18);
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.7);
+  transition: all 0.25s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 0, 127, 0.35);
+  box-shadow: 0 16px 42px -4px rgba(0, 0, 0, 0.8), 0 0 20px -5px rgba(255, 0, 127, 0.15);
+}
+
+.glass-panel-glow {
+  background: rgba(8, 14, 30, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 210, 255, 0.4);
+  box-shadow: 0 0 30px -4px rgba(0, 210, 255, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================================
+   3. NEOMORPHISM (Tactile extruded shadows & insets)
+   ========================================================================= */
+.neomorph-btn {
+  background: linear-gradient(145deg, #0b1222, #050811);
+  box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.75), -3px -3px 10px rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neomorph-btn:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8), -2px -2px 8px rgba(255, 255, 255, 0.06), 0 0 15px rgba(0, 210, 255, 0.3);
+  border-color: rgba(0, 210, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.neomorph-btn:active {
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.9), inset -2px -2px 6px rgba(255, 255, 255, 0.04);
+  transform: translateY(1px);
+}
+
+.neomorph-inset {
+  background: #03060d;
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.85), inset -2px -2px 6px rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================================================
+   4. CLAYMORPHISM (Volumetric puffy 3D pills & buttons)
+   ========================================================================= */
+.clay-pill {
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(20, 32, 60, 0.85) 0%, rgba(10, 16, 32, 0.95) 100%);
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.25),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.7),
+    0 8px 16px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clay-pill:hover {
+  transform: scale(1.03);
+}
+
+.clay-pill-rose {
+  background: linear-gradient(180deg, #ff1493 0%, #b8005b 100%);
+  box-shadow: 
+    inset 0 3px 5px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.6),
+    0 8px 24px rgba(255, 0, 127, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.clay-pill-blue {
+  background: linear-gradient(180deg, #00d2ff 0%, #0056b3 100%);
+  box-shadow: 
+    inset 0 3px 5px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.6),
+    0 8px 24px rgba(0, 112, 243, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================================
+   5. SKEUOMORPHISM (Tactile hardware details & physical metallic bezels)
+   ========================================================================= */
+.skeuo-hardware-panel {
+  background: radial-gradient(circle at 50% 0%, #151d32 0%, #060a14 100%);
+  border: 2px solid #28375a;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.9),
+    0 12px 30px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+.skeuo-hardware-panel::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff007f;
+  box-shadow: 0 0 8px 2px #ff007f;
+  animation: pulse-rose 2s infinite;
+}
+
+.skeuo-screw {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5a6b8c 0%, #1a2233 100%);
+  border: 1px solid #0f1624;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0,0,0,0.8);
+  position: relative;
+}
+.skeuo-screw::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  right: 1px;
+  height: 1px;
+  background: #090e18;
+}
+
+/* =========================================================================
+   6. BRUTALISM (Bold contrast, monospace, sharp geometric boundaries)
+   ========================================================================= */
+.brutalist-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  font-size: 10px;
+  border: 1px solid #FF007F;
+  background: #000000;
+  color: #FF007F;
+  box-shadow: 2px 2px 0px #FF007F;
+}
+
+.brutalist-badge-blue {
+  border-color: #00D2FF;
+  color: #00D2FF;
+  box-shadow: 2px 2px 0px #0070F3;
+}
+
+/* =========================================================================
+   7. BENTO GRID ARCHITECTURE
+   ========================================================================= */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.25rem;
+}
+
+.bento-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================================================================
+   8. SPATIAL UI (VisionOS floating depth, light cast & multi-layer plane)
+   ========================================================================= */
+.spatial-layer-1 {
+  transform: translateZ(10px);
+}
+
+.spatial-glow-blue {
+  position: absolute;
+  filter: blur(80px);
+  background: radial-gradient(circle, rgba(0, 112, 243, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spatial-glow-rose {
+  position: absolute;
+  filter: blur(80px);
+  background: radial-gradient(circle, rgba(255, 0, 127, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================================
+   9. MINIMALISM & MAXIMALISM HARMONY
+   ========================================================================= */
+.cyber-gradient-text {
+  background: linear-gradient(135deg, #00D2FF 0%, #3B82F6 40%, #FF007F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rose-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FF66B2 50%, #FF007F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blue-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #60A5FA 50%, #00D2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

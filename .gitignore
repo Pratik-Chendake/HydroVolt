@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/venv/
+venv/
+.venv/
+
+# Environment Variables & Private Secrets (DO NOT COMMIT)
+.env
+.env.local
+.env.*.local
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+backend/.env
+
+# Local Databases & Persistent Storage
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+water_manager.db
+
+# Build Artifacts
+dist/
+frontend/dist/
+build/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+backend/app/**/__pycache__/
+backend/tests/**/__pycache__/
+.pytest_cache/
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
